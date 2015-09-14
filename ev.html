@@ -1,0 +1,23 @@
+<head>
+  <script>
+    $(document).ready(function(){
+      Eventbrite({'app_key': $APP_KEY}, function(eb){
+        eb.organizer_list_events( {'id': 561037966, 'statuses': "live,started"}, function( response ){
+          var event_list_html = eb.utils.eventList( response, eb.utils.eventListRow );
+          $("#event-list").html(event_list_html);
+        });
+      });
+    });
+  </script>
+
+  <style>
+    #event-list {
+      width: 400px;
+      border: 1px solid black;
+    }   
+  </style>
+</head>
+
+<body>
+  <div id="event-list"></div>
+</body>
